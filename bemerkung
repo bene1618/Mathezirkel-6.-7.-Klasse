@@ -1,0 +1,2 @@
+Die Dateien wurden alle für XeLaTeX geschrieben und können daher nicht mit normalem LaTeX kompiliert werden. Das ist aber
+kein großes Problem, weil alle gängigen TeX-Distributionen auch XeLaTeX enthalten.

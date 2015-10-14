@@ -1,0 +1,63 @@
+\documentclass{scrartcl}
+
+\usepackage{polyglossia}
+\usepackage{xltxtra}
+\usepackage[top=1cm, left=2cm, right=1cm]{geometry}
+\usepackage{tikz}
+
+\usetikzlibrary{patterns}
+
+\setmainlanguage{german}
+
+\parindent 0pt
+\parskip 2cm
+
+\pagestyle{empty}
+
+\begin{document}
+\newgeometry{top=0.4cm,bottom=0.1cm,left=2cm,right=1cm}
+\begin{tikzpicture}[scale=0.81]
+  \foreach \i in {1,2,...,14} {
+    \foreach \j in {1,2,...,14} {
+      \draw[shift={(\i*1.5,\j*1.732+\i*0.866)}] (0:1) \foreach \angle in {60,120,...,300} { -- (\angle:1) } -- cycle;
+    }
+  }
+  \foreach \i in {1,...,14} {
+    \foreach \j in {1} {
+      \draw[very thick,red!60!black,shift={(\i*1.5,\j*1.732+\i*0.866)}]
+        (-120:1) \foreach \angle in {-60,0} { -- (\angle:1) }; 
+    }
+  }
+  \foreach \i in {1,...,14} {
+    \foreach \j in {14} {
+      \draw[very thick,red!60!black,shift={(\i*1.5,\j*1.732+\i*0.866)}]
+        (180:1) \foreach \angle in {120,60} { -- (\angle:1) }; 
+    }
+  }
+  \foreach \i in {1} {
+    \foreach \j in {1,...,14} {
+      \draw[very thick,green!60!black,shift={(\i*1.5,\j*1.732+\i*0.866)}]
+        (120:1) \foreach \angle in {180,240} { -- (\angle:1) }; 
+    }
+  }
+  \foreach \i in {14} {
+    \foreach \j in {1,...,14} {
+      \draw[very thick,green!60!black,shift={(\i*1.5,\j*1.732+\i*0.866)}]
+        (-60:1) \foreach \angle in {0,60} { -- (\angle:1) }; 
+    }
+  }
+\end{tikzpicture}
+
+\newpage
+\restoregeometry
+
+\begin{tikzpicture}[scale=0.76]
+  \foreach \i in {1,2,...,14} {
+    \foreach \j in {1,2,...,14} {
+      \draw[shift={(\i*1.5,\j*1.732+\i*0.866)}] 
+        (0:1) \foreach \angle in {60,120,...,300} { -- (\angle:1) } -- cycle;
+    }
+  }
+\end{tikzpicture}
+
+\end{document}

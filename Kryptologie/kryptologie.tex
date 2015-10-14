@@ -1,0 +1,71 @@
+\documentclass{zusammenfassung}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{colortbl}
+\graphicspath{ {./illustrationen/} }
+\setmonofont{Linux Libertine Mono}
+
+\begin{document}
+\maketitle{Klasse 6/7}{10. Februar 2015}{2014/2015}
+
+\begin{aufgabe}
+  Wie lautet der Klartext, der zu folgendem mit einer Skytale chiffrierten Geheimtext gehört?
+
+  \texttt{ISADTPIHEHNNCSDIROOILTAIHTAEASNFEZCSWESSNISFIUKTUJSESTCRCKE!}
+\end{aufgabe}
+
+\begin{aufgabe}
+  Wie viele Permutationen hat ein Alphabet mit 2 Buchstaben, mit 3 Buchstaben, mit 4 Buchstaben und mit 26 Buchstaben?
+\end{aufgabe}
+
+\begin{aufgabe}
+  Folgender Text ist mit der Cäsar-Verschlüsselung chiffriert worden:
+
+  \texttt{HMI GEIWEV-ZIVWGLPYIWWIPYRK MWX OIMRI WILV WMGLIVI QIXLSHI.}
+
+  Was wurde hier verschlüsselt?
+\end{aufgabe}
+
+\begin{aufgabe}
+  Knacke folgenden Geheimtext, der mit einer Schlüsselwortchiffrierung mit einem deutschen Schlüsselwort verschlüsselt wurde:
+
+  \texttt{YZBY YZBKJYNGJBO ZB XZY MZHHYBHWNUKI LCA LYGHWNTJYHHYTB, \\LYGVYGOYB JBX LYGNYZATZWNYB CNBY UTTY
+  OYNYZABZHRGUYAYGYZ, \\UVYG BZWNI CNBY NZBIYGTZHIZOYB HWNUTR, XUGOYHIYTTI SJA \\BJISYB JBX YGOCYISYB XYH UTTOYAYZBYB DJVTZRJAH.}
+\end{aufgabe}
+
+\pagebreak
+\begin{aufgabe}
+  Der folgende Text wurde mit dem Vigenère-Algorithmus verschlüsselt:
+
+  \begin{center}
+    \fontspec{Linux Libertine Mono}
+    \begin{tabular}{ccccc}
+      PYIPJ&MHQYW&ECJMZ&QXZZD&AGRDT\\
+      XUZCW&PYMSY&QHVBW&IUICW&OBJEF\\
+      PTNKF&LCXKD&EYIGS&QBIOF&PYZXW\\
+      DTNOA&VUVRJ&UAVXE&UMJSG&ZCEBG\\
+      YULPV&UYJMZ&DCWDW&ZUCLW&DNZCK\\[1ex]
+
+      FCVCK&MHWKF&SMYKL&FYVBS&GZXBM\\
+      ZXJOA&ZYINA&BFFWS&FCJMZ&QHKKW\\
+      FCXUW&UNEEJ&BLRUL&UMTRW&ECEDW\\
+      DYJCW&MHUOJ&WLPZL&AAIKH&TCVNS\\
+      ZHZWS&XNVBN&AHEOM&ZOENV&DYZCK\\[1ex]
+
+      UAAKZ&DYELW&EWYVG&EMMSY&QHVBW\\
+      PUJCW&DHLXY&QHLOY&QHUFW&DGFOY\\
+      QHVBO&ALSOF&TUSOM&ZXJOA&ZFVLW\\
+      ZELOF&RNZQV&QLNSK&EYECU&TUWDO\\
+      UXDOF&IICVW
+    \end{tabular}
+  \end{center}
+  \begin{enumerate}
+    \item Bestimme mit dem Kasiski-Test mögliche Schlüssellängen.
+    \item Bestimme mit dem Friedman-Test die Größenordnung der Schlüssellänge.
+    \item Was ist also mit großer Wahrscheinlichkeit die richtige Schlüssellänge?
+    \item Versuche, den Text zu entschlüsseln. Was ist das Schlüsselwort und was der Klartext?
+  \end{enumerate}
+\end{aufgabe}
+
+\end{document}

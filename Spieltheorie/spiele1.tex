@@ -1,0 +1,148 @@
+\documentclass{zusammenfassung}
+\usetikzlibrary{matrix}
+\graphicspath{ {./illustrationen/} }
+
+\begin{document}
+\maketitle{Klasse 6/7}{09. Dezember 2014}{2014/2015}
+
+Bei der \emph{1-\$-Auktion} wird ein Dollar versteigert. Derjenige, der den größten Betrag geboten hat, erhält wie bei einer 
+normalen Auktion gegen sein Gebot den Dollar. Allerdings muss auch derjenige, der am zweitmeisten bietet, seinen gebotenen Betrag 
+abgeben.
+
+Die beste Lösung wäre, wenn sich die Teilnehmer darauf einigen würden, dass nur ein einziger einen Cent (also den Mindestbetrag)
+bietet, und der Gewinn dann aufgeteilt wird. Im Durchschnitt gehen die Gebote allerdings bis \$3,40.
+
+Beim sogenannten \emph{Ultimatumsspiel} gibt es zwei Spieler A und B. Spieler A hat einen Betrag (etwa einen Euro) zur Verfügung
+und muss einen Teil davon Spieler B anbieten. Wenn Spieler B annimmt, darf Spieler A den Rest und Spieler B den angebotenen Betrag
+behalten; ansonsten gehen beider leer aus. Da es sich für Spieler B schon lohnen würde, nur einen Cent zu bekommen, müsste bei
+vollkommen rationalem Verhalten A einen Cent anbieten und B das Angebot annehmen. Da sich B aber in diesem Fall ungerecht
+behandelt fühlen wird, wird er meistens das Angebot eher ablehnen. Das zeigt, dass rationale Entscheidungen nicht immer gute
+Modelle für tatsächliches Verhalten sind.
+
+Das \emph{Gefangenendilemma} beschreibt folgende Situation: Zwei Personen A und B sind beide eines Verbrechens beschuldigt, ihnen
+können aber nur kleinere Vergehen nachgewiesen werden, bei denen sie jeweils für 2 Jahre ins Gefängnis gehen müssten. Daher wird
+beiden das Angebot gemacht, dass sie freikommen, wenn sie durch ihr Geständnis den jeweils anderen belasten. Der müsste dann für 6
+Jahre ins Gefängnis gehen. Wenn allerdings beide gestehen, dann wird das Geständnis als mildernder Umstand gesehen und beide
+müssten für jeweils 4 Jahre ins Gefängnis. Schematisch lässt sich das in sogenannter \emph{Normalform} darstellen:
+
+\begin{center}
+  \begin{tikzpicture}
+    \matrix[matrix of nodes] (table) {
+      \phantom{gesteht nicht}& gesteht & gesteht nicht \\
+      \phantom{gesteht nicht}& 2/2 & 0/6 \\
+      gesteht nicht & 6/0 & 4/4 \\
+    };
+    \node at (table-2-1) {gesteht}; 
+    \draw[double distance=0.8pt] (table-1-1.north east) -- (table-3-1.south east);
+    \draw[double distance=0.8pt] (table-1-1.south west) -- (table-1-3.south east);
+    \node[anchor=south] at ([yshift=0.1cm]$(table-1-2.north)!0.5!(table-1-3.north)$) {Spieler A};
+    \node[anchor=east] at ([xshift=-0.1cm]$(table-2-1.west)!0.5!(table-3-1.west)$) {Spieler B};
+  \end{tikzpicture}
+\end{center}
+
+Die Tabelle bedeutet, dass Spieler A den Wert vor dem Strich und Spieler B den Wert nach dem Strich als "`Auszahlung"' erhält. Die
+Auszahlung ist hier die Anzahl der Jahre, die der jeweilige Spieler in den nächsten 6 Jahren in Freiheit verbringen darf, und
+jeder Spieler möchte die Auszahlung für sich maximieren. Wenn sich beide Spieler absprechen können, ist es vernünftig, dass keiner
+von beiden gesteht, da so die Gesamtauszahlung am höchsten ist. Aus der Sicht jedes einzelnen Spielers jedoch ist es sinnvoller,
+nicht zu gestehen, da so die Auszahlung bei jeder Entscheidung des anderen Spielers maximal wird.
+
+Ein \emph{Nash-Gleichgewicht} besteht aus einer Strategie für jeden Spieler, sodass jeder Spieler unabhängig von der gewählten
+Strategie der anderen Spieler mit seiner Strategie zufrieden ist. Im Gefangenendilemma ist ein Nash-Gleichgewicht also, wenn beide
+Spieler gestehen, denn: Egal, ob ein Spieler gesteht oder nicht, ist für den anderen Spieler die Auszahlung bei einem Geständnis
+höher.
+
+Es gibt zwei Arten von Strategien: Eine \emph{reine Strategie} liegt vor, wenn ich als Spieler \emph{eine} bestimmte Entscheidung
+treffe. Eine gemischte Strategie bedeutet, dass ich eine zufällige Entscheidung (etwa mit Hilfe eines Würfels) zwischen zwei oder
+mehr möglichen Strategien treffe.
+
+Ein Spiel, in dem kein Nash-Gleichgewicht mit reinen Strategien existiert, ist das Spiel \emph{Eisessen vs. Kino}. Hier haben sich
+zwei Freunde verabredet, nach der Schule entweder Eis essen oder ins Kino zu gehen. Spieler 1 möchte dabei lieber Eis essen,
+Spieler 2 lieber ins Kino gehen. Beide sind aber unglücklich, wenn sie nichts zusammen unternehmen, und es besteht für die beiden
+Spieler keine Möglichkeit, sich vorher abzusprechen. Die Normalform des Spiels schaut dann folgendermaßen aus:
+
+\begin{center}
+  \begin{tikzpicture}
+    \matrix[matrix of nodes] (table) {
+      \phantom{Kino}& Eis& Kino\\
+      \phantom{Kino}& 3/1 & 0/0 \\
+      Kino & 0/0 & 1/3 \\
+    };
+    \node at (table-2-1) {Eis}; 
+    \draw[double distance=0.8pt] (table-1-1.north east) -- (table-3-1.south east);
+    \draw[double distance=0.8pt] (table-1-1.south west) -- (table-1-3.south east);
+    \node[anchor=south] at ([yshift=0.1cm]$(table-1-2.north)!0.5!(table-1-3.north)$) {Spieler A};
+    \node[anchor=east] at ([xshift=-0.1cm]$(table-2-1.west)!0.5!(table-3-1.west)$) {Spieler B};
+  \end{tikzpicture}
+\end{center}
+
+Hier hängt es für jeden Spieler von der Entscheidung des anderen Spielers ab, durch welche Entscheidung die Auszahlung maximiert
+werden kann, also existiert kein Nash-Gleichgewicht aus reinen Strategien. 
+
+Eine ganz andere Art von Spiel ist das sogenannte \emph{Nim-Spiel}. Hier werden Streichhölzer in mehreren Reihen ausgelegt, etwa
+folgendermaßen:
+
+\def\line{{\draw (0,-0.1)--(0,0.3);}}
+\begin{center}
+  \begin{tikzpicture}[every path/.style={thick}]
+    \matrix[column sep=3pt,row sep=3pt] {
+      \line\\
+      \line & \line \\
+      \line & \line & \line \\
+      \line & \line & \line & \line \\
+      \line & \line & \line & \line & \line \\
+    };
+  \end{tikzpicture}
+\end{center}
+
+Die Spieler dürfen nun abwechselnd aus eine Reihe ihrer Wahl beliebig viele Hölzer wegnehmen. Wer das letzte Holz wegnimmt,
+gewinnt.
+
+Bei dieser Anfangsposition gewinnt derjenige, der den ersten Zug macht. Um das zu sehen, brauchen wir \emph{Dualzahlen}. So wie
+bei Dezimalzahlen
+\[
+  17438 = 1\cdot \underbrace{10000}_{=10^4}+7\cdot\underbrace{1000}_{=10^3}+4\cdot\underbrace{100}_{=10^2}+3\cdot 10+8\cdot 1
+\]
+ist, sind Dualzahlen eine Darstellung von Zahlen mit Hilfe von Zweierpotenzen, also beispielsweise
+\[
+  (10011)_2=1\cdot 2^4+0\cdot 2^3+0\cdot 2^2+1\cdot 2+1=16+2+1=19.
+\]
+
+Jetzt schreiben wir die Anzahl jeder Reihe als Dezimalzahl und addieren jeweils die Einer-, Zweier- und Viererstellen:
+
+\begin{center}
+  \begin{tikzpicture}[every path/.style={thick}]
+    \matrix[column sep=3pt,row sep=3pt] {
+      \line & & & & &[0.2cm] \node[anchor=base] {$1=$}; & \node[anchor=base] {$(001)_2$};\\
+      \line & \line & & & & \node[anchor=base] {$2=$}; & \node[anchor=base] {$(010)_2$};\\
+      \line & \line & \line & & & \node[anchor=base] {$3=$}; & \node[anchor=base] {$(011)_2$};\\
+      \line & \line & \line & \line & & \node[anchor=base] {$4=$}; & \node[anchor=base] {$(100)_2$};\\
+      \line & \line & \line & \line & \line & \node[anchor=base] {$5=$}; & \node[anchor=base] {$(101)_2$};\\
+					       & & & & & & \draw (-0.6,0)--(0.6,0);\\
+					       &&&&&& \node[anchor=base] {$223$}; \\
+    };
+  \end{tikzpicture}
+\end{center}
+
+Nun muss man in jedem Zug genau so viele Hölzer entfernen, dass in der Summe unten nur gerade Zahlen vorkommen, also in diesem
+Fall ein Holz entweder aus der ersten, der dritten oder der fünften Reihe entfernen. Wenn nun noch Hölzer übrig sind, muss der
+nächste Spieler auf jeden Fall eine der Zahlen in der Summe um 1 verringern, also hat der erste Spieler wieder eine ungerade Zahl
+vor sich und kann von vorne beginnen.
+
+Beispiel: In folgender Situation muss die 1 ganz links entfernt werden. Diese 1 entspricht 4 Hölzern, also müssen alle vier Hölzer
+aus der 4. Reihe weggenommen werden.
+
+\begin{center}
+  \begin{tikzpicture}[every path/.style={thick}]
+    \matrix[column sep=3pt,row sep=3pt] {
+      \line & & & & &[0.2cm] \node[anchor=base] {$1=$}; & \node[anchor=base] {$(001)_2$};\\
+      \line & \line & & & & \node[anchor=base] {$2=$}; & \node[anchor=base] {$(010)_2$};\\
+      \line & \line & & & & \node[anchor=base] {$2=$}; & \node[anchor=base] {$(010)_2$};\\
+      \line & \line & \line & \line & & \node[anchor=base] {$4=$}; & \node[anchor=base] {$(100)_2$};\\
+      \line & \line & \line& & & \node[anchor=base] {$3=$}; & \node[anchor=base] {$(011)_2$};\\
+					       & & & & & & \draw (-0.6,0)--(0.6,0);\\
+					       &&&&&& \node[anchor=base] {$142$}; \\
+    };
+  \end{tikzpicture}
+\end{center}
+
+\end{document}

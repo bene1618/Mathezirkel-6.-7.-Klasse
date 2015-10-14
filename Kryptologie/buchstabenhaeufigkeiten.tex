@@ -1,0 +1,92 @@
+\documentclass{zusammenfassung}
+\graphicspath{ {./illustrationen/} }
+\usepackage{booktabs}
+\geometry{left=4cm,right=4cm}
+
+\begin{document}
+
+\begin{table}
+  \caption{Buchstabenhäufigkeiten in deutschen Texten}
+  \begin{center}
+    \begin{tabular}[t]{cc}
+      \toprule
+      \textbf{Buchstabe}&\textbf{Häufigkeit}\\
+      \midrule
+      a&6,51\%\\
+      b&1.89\%\\
+      c&3.06\%\\
+      d&5.08\%\\
+      e&17,40\%\\
+      f&1,66\%\\
+      g&3,01\%\\
+      h&4,76\%\\
+      i&7,55\%\\
+      j&0,27\%\\
+      k&1,21\%\\
+      l&3,44\%\\
+      m&2,53\%\\
+      \bottomrule
+    \end{tabular}
+    \hskip 2em
+    \begin{tabular}[t]{cc}
+      \toprule
+      \textbf{Buchstabe}&\textbf{Häufigkeit}\\
+      \midrule
+      n&9,78\%\\
+      o&2,51\%\\
+      p&0,76\%\\
+      q&0,02\%\\
+      r&7,00\%\\
+      s&7,27\%\\
+      t&6,15\%\\
+      u&4,35\%\\
+      v&0,67\%\\
+      w&1,89\%\\
+      x&0,03\%\\
+      y&0,04\%\\
+      z&1,13\%\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}
+  \caption{Häufigkeitsverteilung der häufigsten Buchstabenpaare im Deutschen}
+  \begin{center}
+    \begin{tabular}{cc}
+      \toprule
+      \textbf{Buchstabenpaar}&\textbf{Häufigkeit}\\
+      \midrule
+      en&3,88\%\\
+      er&3,75\%\\
+      ch&2,75\%\\
+      te&2,26\%\\
+      de&2,00\%\\
+      \bottomrule
+    \end{tabular}
+    \hskip 2em
+    \begin{tabular}{cc}
+      \toprule
+      \textbf{Buchstabenpaar}&\textbf{Häufigkeit}\\
+      \midrule
+      nd&1,99\%\\
+      ei&1,88\%\\
+      ie&1,79\%\\
+      in&1,67\%\\
+      es&1,52\%\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}
+  \caption{Formeln für den Friedman-Test}
+  \begin{center}
+    \begin{align*}
+      I&=\frac{\sum_{i=1}^{26}n_i(n_i-1)}{n(n-1)}\tag{Koinzidenzindex}\\
+      h&=\frac{0,0377n}{I(n-1)-0,0385n+0,0762}\tag{Schlüsselwortlänge}
+    \end{align*}
+  \end{center}
+\end{table}
+
+\end{document}

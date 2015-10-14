@@ -1,0 +1,410 @@
+\documentclass{zusammenfassung}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{colortbl}
+\graphicspath{ {./illustrationen/} }
+
+\begin{document}
+\maketitle{Klasse 6/7}{3. Februar 2015}{2014/2015}
+
+Schauen wir uns folgenden Beweis an: \emph{Auf jeden Fall ist $-2=-2$ und daher auch $4-6=1-3$ sowie $4-6+\frac 94=1-3+\frac 94$.
+  Mit der zweiten binomischen Formel erhält man, dass $(2-\frac 32)^2=4-6+\frac 94$ und $(1-\frac 32)^2=1-3+\frac 94$ ist. Also
+muss $(2-\frac 32)^2=(1-\frac 32)^2$ gelten. Das ist der Fall, wenn $2-\frac 32=1-\frac 32$ ist. Es folgt $2=1$.}
+
+Was ist falsch an diesem Beweis? (Oder müssen wir akzeptieren, dass $2=1$ ist. Das wäre dann aber noch nicht die schlimmste
+Konsequenz: Wenn man jetzt auf beiden Seiten $1$ abzieht, dann erhält man $1=0$. Bei der Multiplikation mit einer beliebigen Zahl
+$x$ folgt $x=0$. Also sind alle Zahlen gleich.)
+
+Das Problem ist ein logischer Fehler: Es ist zwar wahr, dass $(2-\frac 32)^2=(1-\frac 32)^2$ ist, wenn $2-\frac 32=1-\frac 32$
+gilt. Die Umkehrung stimmt aber nicht: Nur weil $(2-\frac 32)^2=(1-\frac 32)^2$ ist (das ist wahr, denn beide Seiten ergeben 
+$\frac 14$), muss nicht $2-\frac 32=1-\frac 32$ sein (auf der linken Seite steht $+\frac 12$, und auf der rechten $-\frac 12$).
+Diese Art von Fehler ist so beliebt, dass er sogar einen Namen hat, nämlich \emph{Bejahung des Konsequens}. 
+
+Da logische Fehler einfach und schnell passieren, wollen wir feststellen, wie wir die Gültigkeit eines Arguments überprüfen
+können. Dazu betrachten wir nicht notwendigerweise mathematische, sondern auch alltägliche Argumente. Ein Beispiel ist das
+Folgende:
+
+\begin{tabular}{l}
+  Es ist Benzin im Tank oder der Motor läuft nicht.\\
+  Der Motor läuft.\\
+  \hline
+  Benzin ist im Tank.
+\end{tabular}
+
+Die zwei Sätze über dem horizontalen Strich sind die sogenannten \emph{Prämissen}: Wir nehmen an, dass die Prämissen wahre
+Aussagen sind. Ob das tatsächlich der Fall ist, soll uns im Rahmen der logischen Untersuchungen nicht interessieren; allerdings
+ist es in der Praxis natürlich wichtig, dass die Prämissen tatsächlich wahr sind. Der Satz unter dem Strich heißt
+\emph{Konklusion}: Das ist eine Aussage, deren Wahrheit mit Hilfe der Prämissen bewiesen werden soll. Man kann den Strich als
+eines der Wörter "`also"' oder "`folglich"' interpretieren.
+
+Es gibt zwei wichtige Beobachtungen bei der Untersuchung solcher Argumente. Erstens gibt es Wörter, die eine Information
+ausdrücken; sie kommen üblicherweise in einem Argument mehrfach vor. Zweitens gibt es Wörter, die die Informationen verknüpfen:
+sogenannte \emph{logische Ausdrücke}. Färbt man in dem obigen Argumente gleiche Informationen mit der gleichen Farbe und logische
+Ausdrücke mit \textcolor{red}{rot} ein, dann ergibt sich:
+
+\begin{tabular}{l}
+  \textcolor{green}{Es ist Benzin im Tank} \textcolor{red}{oder} \textcolor{brown}{der Motor läuft} \textcolor{red}{nicht}.\\
+  \textcolor{brown}{Der Motor läuft}.\\
+  \arrayrulecolor{red}\hline
+  \textcolor{green}{Benzin ist im Tank}.
+\end{tabular}
+
+Betrachten wir die zwei folgenden Argumente:
+
+\begin{tabular}{l}
+  \textcolor{green}{Bello ist ein Hund} \textcolor{red}{oder} \textcolor{brown}{er bellt} \textcolor{red}{nicht}.\\
+  \textcolor{brown}{Bello bellt}.\\
+  \arrayrulecolor{red}\hline
+  \textcolor{green}{Bello ist ein Hund}.
+\end{tabular}
+
+\begin{tabular}{l}
+  \textcolor{green}{Das reguläre Vieleck A hat drei bis sechs Ecken} \textcolor{red}{oder} 
+  \textcolor{brown}{sein Innenwinkel ist \textcolor{red}{nicht} ein Teiler von $360^\circ$}.\\
+  \textcolor{brown}{Der Innenwinkel von A ist ein Teiler von $360^\circ$}.\\
+  \arrayrulecolor{red}\hline
+  \textcolor{green}{A hat drei bis sechs Ecken}.
+\end{tabular}
+
+Wenn man die drei bisherigen Argumente anschaut, sieht man, dass alle eine Gemeinsamkeit haben: Sie sind alle drei von der Form
+
+\begin{tabular}{l}
+  \textcolor{green}{Grün} \textcolor{red}{oder} \textcolor{brown}{braun} \textcolor{red}{nicht}.\\
+  \textcolor{brown}{Braun}.\\
+  \arrayrulecolor{red}\hline
+  \textcolor{green}{Grün}.
+\end{tabular}
+
+Wir sagen, sie haben \emph{dieselbe logische Form}.
+
+\begin{aufgabe}
+  Finde noch zwei weitere Argumente mit derselben logischen Form wie die Argumente bisher.
+\end{aufgabe}
+
+Wir wollen konkretisieren, was eine logische Form ist. Dazu gibt es vier Schritte, die man bei einem beliebigen Argument
+durchführen kann. Diese Schritte will ich bei dem Argument mit Bello verdeutlichen.
+
+Im ersten Schritt werden \emph{gleiche Argumente mit dem exakt gleichen Wortlaut ausgedrückt} (soweit das grammatikalisch möglich
+ist). In dem Bello-Argument bedeutet das, dass "`er bellt"' in der ersten Prämisse durch den Wortlaut "`Bello bellt"' ersetzt
+wird:
+
+\begin{tabular}{l}
+  \textcolor{green}{Bello ist ein Hund} \textcolor{red}{oder} \textcolor{brown}{Bello bellt} \textcolor{red}{nicht}.\\
+  \textcolor{brown}{Bello bellt}.\\
+  \arrayrulecolor{red}\hline
+  \textcolor{green}{Bello ist ein Hund}.
+\end{tabular}
+
+Im zweiten Schritt \emph{werden Informationen durch Satzkonstanten abgekürzt}. Das bedeutet, dass wir die grünen Aussage "`Bello
+ist ein Hund"' mit dem Buchstaben $A$ abkürzen und die Aussage "`Bello bellt"' mit $B$:
+
+\begin{tabular}{l}
+  \textcolor{green}{$A:=\text{"`Bello ist ein Hund"'}$}, \textcolor{brown}{$B:=\text{"`Bello bellt"'}$}\\[1ex]
+  \textcolor{green}{$A$} \textcolor{red}{oder} \textcolor{brown}{$B$} \textcolor{red}{nicht}.\\
+  \textcolor{brown}{$B$}.\\
+  \arrayrulecolor{red}\hline
+  \textcolor{green}{$A$}.
+\end{tabular}
+
+Das Zeichen $:=$ bedeutet dabei, dass die linke Seite durch die rechte definiert wird. Dagegen würde $=:$ bedeuten, dass die Seite
+rechts vom Gleichheitszeichen durch das definiert wird, was links steht.
+
+Im dritten Schritt werden die \emph{Satzkonstanten durch Satzvariablen} ersetzt:
+
+\begin{tabular}{l}
+  \textcolor{green}{$p$} \textcolor{red}{oder} \textcolor{brown}{$q$} \textcolor{red}{nicht}.\\
+  \textcolor{brown}{$q$}.\\
+  \arrayrulecolor{red}\hline
+  \textcolor{green}{$p$}.
+\end{tabular}
+
+Die Zeichen \textcolor{green}{$p$} und \textcolor{red}{$q$} stehen jetzt nicht mehr für eine \emph{konkrete} Aussage, sondern
+für eine \emph{beliebige} Aussage. Man könnte also jetzt \textcolor{red}{$p$} überall durch die Aussage "`Benzin ist im Tank"'
+und \textcolor{brown}{$q$} durch die Aussage "`Der Motor läuft"' ersetzen und würde unser erstes Argument erhalten.
+
+Im vierten Schritt werden jetzt noch die \emph{logischen Ausdrücke durch Symbole ersetzt}: 
+
+\begin{tabular}{l}
+  \textcolor{green}{$p$} \textcolor{red}{$\vee$} \textcolor{red}{$\neg$}\textcolor{brown}{$q$}.\\
+  \textcolor{brown}{$q$}.\\
+  \arrayrulecolor{red}\hline
+  \textcolor{green}{$p$}.
+\end{tabular}
+
+Dabei kann man die Symbole für die logischen Ausdrücke aus folgender Tabelle entnehmen:
+
+\begin{center}
+  \begin{tabular}{rl}
+    \toprule
+    logischer Ausdruck&Symbol\\
+    \midrule
+    nicht $p$ bzw. $p$ nicht&$\neg p$\\
+    $p$ oder $q$&$p\vee q$\\
+    $p$ und $q$&$p\wedge q$\\
+    wenn $p$, dann $q$&$p\rightarrow q$\\
+    $p$ genau dann, wenn $q$&$p\leftrightarrow q$\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{aufgabe}
+  Führe die vier Schritte bei folgendem Argument durch:
+
+  \begin{tabular}{l}
+    Willi nimmt die Treppen oder er nimmt den Aufzug zu seiner Wohnung.\\
+    Wenn er die Treppen nimmt, wird er oben müde sein.\\
+    Wenn er den Aufzug nimmt, wird er den Beginn seiner Lieblingsserie verpassen.\\
+    \hline
+    Willi wird oben müde sein oder den Beginn seiner Lieblingsserie verpassen.
+  \end{tabular}
+
+\end{aufgabe}
+\begin{proof}[Lösung]
+  Beim ersten Schritt wird "`er nimmt den Aufzug zu seiner Wohnung"' zu "`er nimmt den Aufzug"', "`Willi nimmt die Treppen"' zu
+  "`er nimmt die Treppen"' und "`Willi wird oben müde sein"' zu "`er wird oben müde sein"'. Außerdem wird in der Konklusion noch
+  "`er wird"' eingefügt. Das Wort "`dann"', das bisher nicht explizit vorkam, wird ebenfalls eingefügt.
+
+  \begin{tabular}{l}
+    Er nimmt die Treppen oder er nimmt den Aufzug.\\
+    Wenn er die Treppen nimmt, dann wird er oben müde sein.\\
+    Wenn er den Aufzug nimmt, dann wird er den Beginn seiner Lieblingsserie verpassen.\\
+    \hline
+    Er wird oben müde sein oder er wird den Beginn seiner Lieblingsserie verpassen.
+  \end{tabular}
+
+  Im zweiten Schritt erhalten wir
+
+  \begin{tabular}{l}
+    $A:=\text{"`Er nimmt die Treppen"'}$, $B:=\text{"`Er nimmt den Aufzug"'}$,\\
+    $C:=\text{"`Er wird oben müde sein"'}$, $D:=\text{"`Er wird den Beginn seiner Lieblingsserie verpassen"'}$.\\[1ex]
+    $A$ oder $B$.\\
+    Wenn $A$, dann $C$.\\
+    Wenn $B$, dann $D$.\\
+    \hline
+    $C$ oder $D$.
+  \end{tabular}
+
+  Der dritte Schritt ergibt
+
+  \begin{tabular}{l}
+    $p$ oder $q$.\\
+    Wenn $p$, dann $r$.\\
+    Wenn $q$, dann $s$.\\
+    \hline
+    $r$ oder $s$.
+  \end{tabular}
+
+  Im vierten Schritt schließlich erhalten wir die logische Form
+
+  \begin{tabular}{l}
+    $p\vee q$.\\
+    $p\rightarrow r$\\
+    $q\rightarrow s$\\
+    \hline
+    $r\vee s$.
+  \end{tabular}\renewcommand{\qedsymbol}{}
+\end{proof}
+
+\begin{aufgabe}
+  Finde ein Argument mit einer weiteren logischen Form.
+\end{aufgabe}
+
+Wie können wir jetzt herausfinden, ob beispielsweise die logische Form
+
+\begin{tabular}{l}
+  $p\vee q$.\\
+  $p\rightarrow r$\\
+  $q\rightarrow s$\\
+  \hline
+  $r\vee s$.
+\end{tabular}
+
+ein gültiges Argument ergibt? Dazu nehmen wir an, dass alle Aussagen, die wir untersuchen wollen, entweder wahr oder falsch (und
+nicht beides gleichzeitig) sind. Dann können wir die Bedeutung der logischen Ausdrücke präzisieren: Beispielsweise ist die Aussage
+$\neg p$ ("`nicht $p$"') wahr, wenn $p$ falsch ist, und falsch, wenn $p$ war ist. Die Aussage $p\wedge q$ ("`$p$ und $q$"') ist
+wahr, wenn $p$ und $q$ beide wahr sind, und ansonsten falsch. Das lässt sich durch \emph{Wahrheitstafeln} folgendermaßen
+darstellen:
+
+\begin{center}
+  \begin{tabular}[t]{>{$}c<{$}||>{$}c<{$}}
+    p&\neg p\\
+    \hline
+    w&f\\
+    f&w
+  \end{tabular}
+  \hskip 2em
+  \begin{tabular}[t]{>{$}c<{$}|>{$}c<{$}||>{$}c<{$}}
+    p&q&p\wedge q\\
+    \hline
+    w&w&w\\
+    w&f&f\\
+    f&w&f\\
+    f&f&f
+  \end{tabular}
+\end{center}
+
+Auf der linken Seite des Doppelstrichs werden alle vorkommenden Aussagenvariablen aufgeführt. Jede kann unabhängig von den anderen
+wahr oder falsch sein. Dabei wird "`wahr"' durch $w$ und "`falsch"' durch $f$ abgekürzt.
+
+\begin{aufgabe}
+  Stelle die Wahrheitstafeln für $\vee$, $\rightarrow$ und $\leftrightarrow$ auf.
+\end{aufgabe}
+\begin{proof}[Lösung]\renewcommand{\qedsymbol}{}\
+  \begin{center}
+    \begin{tabular}[t]{>{$}c<{$}|>{$}c<{$}||>{$}c<{$}}
+      p&q&p\vee q\\
+      \hline
+      w&w&w\\
+      w&f&w\\
+      f&w&w\\
+      f&f&f
+    \end{tabular}
+    \hskip 2em
+    \begin{tabular}[t]{>{$}c<{$}|>{$}c<{$}||>{$}c<{$}}
+      p&q&p\rightarrow q\\
+      \hline
+      w&w&w\\
+      w&f&f\\
+      f&w&w\\
+      f&f&w
+    \end{tabular}
+    \hskip 2em
+    \begin{tabular}[t]{>{$}c<{$}|>{$}c<{$}||>{$}c<{$}}
+      p&q&p\leftrightarrow q\\
+      \hline
+      w&w&w\\
+      w&f&f\\
+      f&w&f\\
+      f&f&w
+    \end{tabular}
+  \end{center}
+
+  Das präzisiert die Bedeutung von "`oder"', "`wenn, dann"' und "`genau dann, wenn"'. Die Aussage "`$p$ oder $q$"' ist nach der
+  ersten Tabelle genau dann wahr, wenn mindestens eine der Aussagen $p$ oder $q$ wahr ist (also auch, wenn beide wahr sind). Die
+  Aussage "`wenn $p$, dann $q$"' ist nach der mittleren Tabelle immer wahr, außer wenn $p$ falsch und $q$ trotzdem wahr ist. 
+  Schließlich ist die Aussage "`$p$ genau dann, wenn $q$"' wahr, wenn $p$ und $q$ beide wahr oder beide falsch sind.
+\end{proof}
+
+Jetzt sind wir so weit, dass wir Argumentationsformen auf deduktive Korrektheit, also Korrektheit im Sinne der Logik, überprüfen
+können. Zunächst überprüfen wir die Korrektheit unseres Bello-Arguments vom Anfang, also des Arguments der Form
+
+\begin{tabular}{>{$}l<{$}}
+  p\vee (\neg q)\\
+  q\\
+  \hline
+  p
+\end{tabular}
+
+Dazu stellen wir eine Wahrheitstafel mit allen vorkommenden logischen Ausdrücken auf, also mit $p$, $q$ und $p\vee(\neg q)$. Der
+letzte Ausdruck ist selbst noch einmal zusammengesetzt, sodass wir auch noch $\neg q$ zur Analyse brauchen. Zusammen erhalten wir
+die folgende Wahrheitstafel:
+
+\begin{center}
+  \begin{tabular}{>{$}c<{$}|>{$}c<{$}||>{$}c<{$}|>{$}c<{$}}
+    p&q&\neg q&p\vee(\neg q)\\
+    \hline
+    w&w&f&w\\
+    w&f&w&w\\
+    f&w&f&f\\
+    f&f&w&w
+  \end{tabular}
+\end{center}
+
+Da wir annehmen, dass die Prämissen wahr sind, können wir alle Zeilen, bei denen $p\vee(\neg q)$ oder $q$ falsch ist,
+wegstreichen. Übrig bleibt nur noch eine Zeile:
+
+\newcommand{\tikzmark}[1]{\tikz[remember picture,overlay, baseline=-0.5ex]\node (#1){};}
+\newcommand{\connect}[3][3mm]{\tikz[remember picture,overlay]\draw[shorten <=-#1, shorten >=-#1,red](#2)--(#3);}
+
+\begin{center}
+  \begin{tabular}{>{$}c<{$}|>{$}c<{$}||>{$}c<{$}|>{$}c<{$}}
+    p&q&\neg q&p\vee(\neg q)\\
+    \hline
+    \colorbox{green}{$w$}&w&f&w\\
+    \tikzmark{p1}w&\colorbox{red}{$f$}&w&w\tikzmark{p2}\\
+    \tikzmark{p3}f&w&f&\colorbox{red}{$f$}\tikzmark{p4}\\
+    \tikzmark{p5}f&\colorbox{red}{$f$}&w&w\tikzmark{p6}
+  \end{tabular}
+  \connect{p1}{p2}
+  \connect{p3}{p4}
+  \connect{p5}{p6}
+\end{center}
+
+In dieser Zeile ist die Konklusion $p$ allerdings wahr, sodass das Argument gültig ist: Wenn die Prämissen wahr sind, dann ist auf
+jeden Fall auch die Konklusion wahr.
+
+Ein weiteres Beispiel ist folgende Argumentationsform:
+
+\begin{tabular}{>{$}l<{$}}
+  p\rightarrow q\\
+  q\rightarrow r\\
+  \hline
+  p\rightarrow r
+\end{tabular}
+
+Die fertige Wahrheitstabelle schaut folgendermaßen aus:
+
+\begin{center}
+  \begin{tabular}{>{$}c<{$}|>{$}c<{$}|>{$}c<{$}||>{$}c<{$}|>{$}c<{$}|>{$}c<{$}}
+    p&q&r&p\rightarrow q&q\rightarrow r&p\rightarrow r\\
+    \hline
+    w&w&w&w&w&\colorbox{green}{$w$}\\
+    \tikzmark{q1}w&w&f&w&\colorbox{red}{$f$}&f\tikzmark{q2}\\
+    \tikzmark{q3}w&f&w&\colorbox{red}{$f$}&w&w\tikzmark{q4}\\
+    \tikzmark{q5}w&f&f&\colorbox{red}{$f$}&w&f\tikzmark{q6}\\
+    f&w&w&w&w&\colorbox{green}{$w$}\\
+    \tikzmark{q7}f&w&f&w&\colorbox{red}{$f$}&w\tikzmark{q8}\\
+    f&f&w&w&w&\colorbox{green}{$w$}\\
+    f&f&f&w&w&\colorbox{green}{$w$}
+    \connect{q1}{q2}
+    \connect{q3}{q4}
+    \connect{q5}{q6}
+    \connect{q7}{q8}
+  \end{tabular}
+\end{center}
+
+Auch hier ist die Konklusion wieder in allen übriggebliebenen Zeilen wahr und das Argument daher gültig. Es sagt aus, dass
+der logische Ausdruck "`$\rightarrow$"' \emph{transitiv} ist, dass man also aus Zwischenschritten bestehende Implikationen 
+zusammensetzen kann.
+
+\begin{center}
+\end{center}
+
+\pagebreak
+\begin{aufgabe}
+  Überprüfe folgende Argumentationsformen auf deduktive Korrektheit:
+
+  \begin{tabular}{ll >{\hskip 1em}ll >{\hskip 1em}ll}
+    a)&\textbf{Modus ponens}&b)&\textbf{Modus tollens}&c)&\textbf{Verneinung des Antezedens}\\
+      &$p\rightarrow q$  & &  $p\rightarrow q$  & &  $p\rightarrow q$\\
+      &$p$		 & &  $\neg q$		& &  $\neg p$\\
+    \hline
+      &$q$		 & &  $\neg p$		& &  $\neg q$
+  \end{tabular}\\[1ex]
+
+  \begin{tabular}{ll >{\hskip 1em}ll}
+    d)&\textbf{Disjunktiver Syllogismus}&e)&\textbf{Bejahung des Konsequens}\\
+      &$p\vee q$  & &  $p\rightarrow q$\\
+      &$\neg p$	  & &  $q$\\
+    \hline
+      &$q$	  & &  $p$
+  \end{tabular}\\[1ex]
+
+  \begin{tabular}{ll}
+    f)&\textbf{Reductio ad absurdum}\\
+      &$\neg p\rightarrow(q\wedge\neg q)$\\
+    \hline
+      &$p$
+  \end{tabular}
+\end{aufgabe}
+
+Es bleibt zu sagen, dass die Annahme, dass alle Aussagen entweder wahr oder falsch sind, ein Axiom sind, das nicht weiter
+begründet werden kann. Tatsächlich gibt es auch Formen von formaler Logik, die diese Annahme nicht verwenden; man sagt auch, dass
+der \emph{Satz vom ausgeschlossenen Dritten} oder das \emph{tertium non datur} in diesen Arten von Logik nicht gilt.
+
+Unabhängig davon haben wir nur die sogenannte \emph{Aussagenlogik} untersucht. In der \emph{Prädikatenlogik} werden Aussagen der
+Art "`Alle Hunde sind Säugetiere"' genauer untersucht: Der Gegenstand der Prädikatenlogik sind Aussagen, die für \emph{alle} oder
+\emph{einige} Objekte eines bestimmten Typs erfüllt sind.
+
+\end{document}

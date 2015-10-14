@@ -1,0 +1,148 @@
+\documentclass{zusammenfassung}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{xstring}
+\usepackage{intcalc}
+\usepackage{alphalph}
+\usepackage[misc]{ifsym}
+\usepackage{ziffer}
+\graphicspath{ {./illustrationen/} }
+\setmonofont{Linux Libertine Mono}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix}
+
+\begin{document}
+\maketitle{Klasse 6/7}{21. Juli 2015}{2014/2015}
+
+Gibt es eine Zahl, deren Quadrat gleich $2$ ist, also eine Zahl $x$ mit $x^2=2$ (so eine Zahl nennt man \emph{(Quadrat-)Wurzel} von
+$2$ und schreibt sie als $\sqrt 2$)? Falls $x=\frac mn$ ein Bruch ist, also $m$ und $n$ natürliche Zahlen sind, dann folgt
+\[
+	\frac{m^2}{n^2}=\left(\frac mn\right)^2=2
+\]
+beziehungsweise (wenn man beide Seiten mit $n^2$ multipliziert)
+\[
+	m^2=2n^2.
+\]
+In der Primfaktorzerlegung von $m^2$ kommt die $2$ mit einer geraden Potenz vor, da jede $2$ in der Primfaktorzerlegung von $m$
+quadriert wird. Genauso kommt die $2$ in der Primfaktorzerlegung von $n^2$ mit einer geraden Potenz vor, also kommt sie in der
+Primfaktorzerlegung von $2n^2$ mit einer ungeraden Potenz vor. Das kann aber nicht sein, weil ja $2n^2=m^2$ ist. Also erfüllt kein
+Bruch $x=\frac mn$ die Gleichung $x^2=2$.
+
+Wir können aber versuchen, Annäherungen für $\sqrt 2$ zu finden. Beispielsweise ist $1^2=1$ kleiner als $2$, aber $2^2=4$ größer
+als $2$, also muss $\sqrt 2$ zwischen $1$ und $2$ liegen. Genauere Annäherungen sind folgende:
+\begin{align*}
+	1,4^2=1,96<2,\; 1,5^2=2,25>2&\leadsto \sqrt 2\in[1,4;1,5]\\
+	1.41^2=1,9881<2,\;1,42^2=2,0164>2&\leadsto \sqrt 2\in[1,41;1,42]\\
+	1,414^2=1,999396<2,\;1,415^2=2,002225>2&\leadsto \sqrt 2\in[1,414;1,415]
+\end{align*}
+Indem man so weitermacht, kann man $\sqrt 2$ als unendlichen Dezimalbruch, beginnend mit $1,414\ldots$, auffassen.
+
+An der Stelle $\sqrt 2$ haben die rationalen Zahlen (also die Menge aller Brüche) also eine Lücke, die man mit dieser Konstruktion
+füllen kann. Wir bezeichnen die Menge aller unendlichen Dezimalbrüche mit $\mathbb R$. Das sind die sogenannten \emph{reellen
+Zahlen}. Beispiele für reelle Zahlen sind natürlich alle rationale Zahlen, aber eben auch zum Beispiel $\sqrt 2$. Die reellen
+Zahlen, die nicht rational sind, sich also nicht als Bruch schreiben lassen, heißen \emph{irrationale Zahlen}. Wir haben also
+gerade gesehen, dass $\sqrt 2$ eine irrationale Zahl ist. Die Aufgaben beschäftigen sich mit weiteren irrationalen Zahlen, wobei
+die Anzahl der Sternchen $*$ die Schwierigkeit der Aufgabe angibt: Je mehr Sternchen, desto schwieriger.
+
+\begin{aufgabe}
+	Welche der folgenden Zahlen sind rational, lassen sich also als Bruch schreiben?
+	\begin{enumerate}
+		\item $\sqrt 3$
+		\item $\sqrt 4$
+		\item $\sqrt p$, wobei $p$ eine Primzahl ist
+		\item $\sqrt n$, wobei $n$ keine Quadratzahl ist
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[$(*)$]
+	Berechne die ersten $3$ Nachkommastellen von $\sqrt 3$ (ohne Taschenrechner)!
+\end{aufgabe}
+
+\begin{aufgabe}
+	$\sqrt[3]{12}$ ist eine reelle Zahl, die die Gleichung $(\sqrt[3]{12})^3=12$ erfüllt. Ist $\sqrt[3]{12}$ rational?
+\end{aufgabe}
+
+\def\phi{\varphi}
+
+\begin{aufgabe}
+	\begin{enumerate} 
+		\item $(***)$ Überlege dir, dass folgende Aussage wahr ist: \emph{Seien $x$ und $y$ positive reelle Zahlen. Dann hört Euklids
+				Algorithmus genau dann auf (er "`terminiert"'), wenn $x$ ein rationales Vielfaches von $y$ ist, also $x=qy$ für eine
+			rationale Zahl $q\in\mathbb Q$ gilt.}
+		\item $(**)$ Der \emph{goldene Schnitt} $\phi$ ist das Verhältnis $\frac ba$ mit der Eigenschaft, dass $\frac{b+a}b=\phi=\frac
+			ba$ ist.
+			\begin{center}
+				\begin{tikzpicture}[x=4cm]
+					\draw (0,-0.2) -- (0,0.2)
+					  (1,-0.2) -- (1,0.2)
+						(0.618,-0.2) -- (0.618,0.2);
+					\draw (0,0) -- (1,0);
+					\node[anchor=base] at (0.309,0.15) {b};
+					\node[anchor=base] at (0.809,0.15) {a};
+			  \end{tikzpicture}
+			\end{center}
+			Zeige, dass der euklidische Algorithmus mit $b$ und $b+a$ nicht terminiert. Folgere daraus, dass $\phi$ irrational ist.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[$(***)$]
+	Sei $x\in\mathbb Q$ eine rationale Lösung der Gleichung
+	\begin{equation}
+		a_0+a_1x+a_2x^2+\cdots+a_nx^n=0,\tag{$\heartsuit$}
+	\end{equation}
+	wobei $a_0,a_1,\ldots,a_n\in\mathbb Z$ ganze Zahlen seien. Sei außerdem $x=\frac kl$ eine vollständig gekürzte Darstellung von
+	$x$, also $k\in\mathbb Z$, $l\in\mathbb N$ und $\text{ggT}(k,l)=1$. Zeige, dass dann gilt:
+	\begin{enumerate}
+		\item $k$ ist ein Teiler von $a_0$
+		\item $l$ ist ein Teiler von $a_n$
+	\end{enumerate}
+	\emph{Tipp: Multipliziere die Gleichung ($\heartsuit$) mit $l^n$. $k$ und $l$ sind Teiler der rechten Seite (da steht $0$), also
+	müssen sie auch Teiler der linken Seite sein.}
+\end{aufgabe}
+
+\begin{aufgabe}[$(**)$]
+	Der goldene Schnitt $\phi$ wurde in Aufgabe 4b) definiert.
+	\begin{enumerate}
+		\item Überlege dir, dass $\phi$ die Gleichung $\phi^2=1+\phi$ erfüllt.
+		\item Forme diese Gleichung um, um zu zeigen, dass $\phi$ auch $1+\phi-\phi^2=0$ erfüllt.
+		\item Verwende Aufgabe $5$, um zu zeigen, dass $\phi$ irrational ist.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[$(*)$]
+	Warum ist das Quadrat jeder reellen Zahl positiv? Kann man also die Gleichung $x^2=-1$ für reelle Zahlen lösen?
+\end{aufgabe}
+
+Die letzte Aufgabe zeigt, dass man auch mit reellen Zahlen an gewisse Grenzen stößt, da man nicht jede Gleichung lösen kann. Man
+kann über dieses Problem hinwegkommen, indem man einfach eine neue Zahl $i$ einführt, die $i^2=-1$ erfüllt. Die Zahl $i$ kann
+nicht auf der Zahlengerade liegen, sondern liegt sozusagen "`neben ihr"'. Eine \emph{komplexe Zahl} ist dann die Summe von
+Vielfachen von $i$ und einer reellen Zahl, also etwa eine Zahl wie $\phi+\sqrt 2\cdot i$, wobei $\phi$ der goldene Schnitt aus
+Aufgabe 4b) ist. Man bezeichnet die Menge der komplexen Zahlen mit $\mathbb C$. Eine Möglichkeit, sich komplexe Zahlen
+vorzustellen, ist die sogenannte \emph{Zahlenebene}:
+\begin{center}
+	\begin{tikzpicture}
+		\draw[->] (-2.5,0) -- (2.5,0);
+		\draw[->] (0,-2.5) -- (0,2.5);
+
+		\foreach \x in {-2,-1,1,2}
+		  \draw[xshift=\x cm] (0pt,1pt) -- (0pt,-1pt) node[below,fill=white] {$\x$};
+		\foreach \y/\ytext in {-2,-1/-,1/,2}
+		  \draw[yshift=\y cm] (1pt,0pt) -- (-1pt,0pt) node[left,fill=white] {$\ytext i$};
+
+			\draw[fill=black] (1,2) circle (1pt) node[below] {$1+2i$};
+	\end{tikzpicture}
+\end{center}
+
+Komplexe Zahlen sind dann Punkte in der Zahlenebene. Quadrieren verdoppelt dann einfach den Winkel zu den positiven reellen
+Zahlen: $-1$ hat einen Winkel von $180^\circ$ und wird auf $360^\circ$ (also auf die positiven reellen Zahlen) abgebildet. $i$ hat
+einen Winkel von $90^\circ$ und wird auf $180^\circ$, also auf eine negative reelle Zahl (nämlich $-1$) abgebildet. Es stellt sich
+heraus, dass man in den komplexen Zahlen nicht nur die Gleichung $x^2=-1$ lösen kann, sondern sogar viel mehr Gleichungen, nämlich
+alle Polynomgleichungen
+\[
+	a_0+a_1x+\cdots+a_nx^n=0,
+\]
+wobei $n\geq 1$ und $a_n\neq 0$ sein muss. Die Forderung $n\geq 1$ ist wichtig, weil man sonst die Gleichung $a_0=0$ hätte, die
+natürlich für $a_0\neq 0$ keine Lösung besitzen kann (die Variable $x$ kommt ja noch nicht einmal vor).
+\end{document}
